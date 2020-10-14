@@ -30,7 +30,7 @@ public class DetectEnemy : MonoBehaviour
         if (distance_to_enemy <= range_to_detect)
         {
             enemy_detected = true;
-            turret.transform.LookAt(enemy.transform);
+            //turret.transform.LookAt(enemy.transform);
         }
            
     }
