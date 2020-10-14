@@ -16,7 +16,8 @@ public class Shoot : MonoBehaviour
     public float angle_tan; //angle before doing Mathf.atan
     public float angle;
 
-
+    public float reloading_timer = 2f;
+    public bool reloading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +43,35 @@ public class Shoot : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            bullet = Instantiate(bullet, turret.transform.position, Quaternion.identity);
-            bullet.transform.LookAt(target.transform);
-            bullet.velocity = turret.transform.forward * v;
+            ShootBullet();
+        }
+
+        if (reloading)
+        {
+            // reloading_timer -= Time.deltaTime;
+            Reload();
         }
          
     }
 
+    void ShootBullet()
+    {
+        bullet = Instantiate(bullet, turret.transform.position, Quaternion.identity);
+        bullet.transform.LookAt(target.transform);
+        bullet.velocity = turret.transform.forward * v;
 
+        reloading = true;
+    }
+    
+    void Reload()
+    {
+        reloading_timer -= Time.deltaTime;
+        if (reloading_timer <= 0)
+        {
+            reloading = false;
+            reloading_timer = 2;
+        }
+           
+
+    }
 }

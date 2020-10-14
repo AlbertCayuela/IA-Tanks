@@ -11,6 +11,7 @@ public class TankStateManager : MonoBehaviour
     SteeringWander wander;
     DetectEnemy detect_enemy;
     SeekTarget seek;
+    Shoot shoot;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class TankStateManager : MonoBehaviour
         wander = GetComponent<SteeringWander>();
         detect_enemy = GetComponent<DetectEnemy>();
         seek = GetComponent<SeekTarget>();
+        shoot = GetComponent<Shoot>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class TankStateManager : MonoBehaviour
         {
             current_state = STATE.SEEKING;
             seek.enabled = true;
+            shoot.enabled = true;
         }
         else
             seek.enabled = false;
