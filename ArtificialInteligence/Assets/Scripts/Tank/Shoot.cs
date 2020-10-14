@@ -7,6 +7,7 @@ public class Shoot : MonoBehaviour
 
     public GameObject target; //enemy tank
     public GameObject turret; //tank turret
+    public Rigidbody bullet; //bullet we will shoot
 
     public float v = 30f; //bullet valocity
     public float g = Physics.gravity.y;  //gravity
@@ -16,10 +17,11 @@ public class Shoot : MonoBehaviour
     public float angle;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,6 +39,15 @@ public class Shoot : MonoBehaviour
         //rotate the turret
         turret.transform.LookAt(target.transform);
         turret.transform.Rotate(turret.transform.right, angle, Space.World);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            bullet = Instantiate(bullet, turret.transform.position, Quaternion.identity);
+            bullet.transform.LookAt(target.transform);
+            bullet.velocity = turret.transform.forward * v;
+        }
          
     }
+
+
 }
