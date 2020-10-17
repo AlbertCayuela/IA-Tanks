@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
     public float g = Physics.gravity.y;  //gravity
     public float x; //distance from tank to target
     public float y; //enemy height
-    public float angle_tan; //angle before doing Mathf.atan
+    public float angle_sin; //angle before doing Mathf.atan
     public float angle;
 
     public float reloading_timer = 2f;
@@ -32,10 +32,19 @@ public class Shoot : MonoBehaviour
 
         y = target.transform.position.y;
 
-        float square_part = (v * v * v * v) - g * (g * (x * x) + 2 * y * (v * v));
-        float squared_res = (v * v) + Mathf.Sqrt(square_part);
-        angle_tan = squared_res / (g * x);
-        angle = Mathf.Rad2Deg * Mathf.Atan(angle_tan);
+        //float square_part = (v * v * v * v) - g * (g * (x * x) + 2 * y * (v * v));
+        //float squared_res = (v * v) + Mathf.Sqrt(square_part);
+        //angle_tan = squared_res / (g * x);
+        //angle = Mathf.Rad2Deg * Mathf.Atan(angle_tan);
+        //Debug.Log(angle);
+
+        //angle = Mathf.Pow(Mathf.Sin((g*x)/(v*v)), -1);
+        //angle = angle / 2;
+
+        float part1 = Mathf.Asin((g * x) / (v * v));
+        angle_sin = part1 / 2;
+        angle = Mathf.Asin(angle_sin) * Mathf.Rad2Deg;
+
 
         //rotate the turret
         turret.transform.LookAt(target.transform);
