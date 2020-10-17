@@ -14,7 +14,7 @@ public class Shoot : MonoBehaviour
     public float x; //distance from tank to target
     public float y; //enemy height
     public float angle_sin; //angle before doing Mathf.atan
-    public float angle;
+    public float angle; //shooting angle
 
     public float reloading_timer = 2f;
     public bool reloading = false;
@@ -40,6 +40,8 @@ public class Shoot : MonoBehaviour
 
         //angle = Mathf.Pow(Mathf.Sin((g*x)/(v*v)), -1);
         //angle = angle / 2;
+
+        //PARABOLIC SHOT FORMULA USED --> angle = (Mathf.Asin((g * x) / (v * v))/(2)
 
         float part1 = Mathf.Asin((g * x) / (v * v));
         angle_sin = part1 / 2;
