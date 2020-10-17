@@ -4,35 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CountDownTimer : MonoBehaviour
 {
+    public int countDownTimer;
+    public Text countDownDisplay;
 
-    float currentTime = 0f;
-    float startingTime =3f;
-
-    [SerializeField] Text countdownText;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
-        currentTime = startingTime;
+        StartCoroutine(CountDown());
 
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CountDown()
     {
-        currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString(format:"0");
-
-        if(currentTime <= 0)
+        while(countDownTimer > 0)
         {
-            currentTime = 0;
-        }
-        if(currentTime == 0)
-        {
-            countdownText.text = "Go";
+            countDownDisplay.text = countDownTimer.ToString();
+            yield return new WaitForSeconds(1f);
 
+            countDownTimer--;
 
         }
-        
+
+        countDownDisplay.text = "GO!";
+        yield return new WaitForSeconds(1f);
+        countDownDisplay.gameObject.SetActive(false);
+
+
     }
 }
