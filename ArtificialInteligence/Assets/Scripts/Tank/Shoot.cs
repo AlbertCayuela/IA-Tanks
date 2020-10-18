@@ -8,6 +8,11 @@ public class Shoot : MonoBehaviour
     public GameObject target; //enemy tank
     public GameObject turret; //tank turret
     public Rigidbody bullet; //bullet we will shoot
+    public Transform bullet_spawn; //place where we spawn the bullets
+
+    public AudioSource shooting_audio;
+    public AudioClip charging_clip;
+    public AudioClip fire_clip;
 
     public float v = 30f; //bullet valocity
     public float g = Physics.gravity.y;  //gravity
@@ -67,9 +72,12 @@ public class Shoot : MonoBehaviour
 
     void ShootBullet()
     {
-        bullet = Instantiate(bullet, turret.transform.position, Quaternion.identity);
+        bullet = Instantiate(bullet, bullet_spawn.position, Quaternion.identity);
         bullet.transform.LookAt(target.transform);
         bullet.velocity = turret.transform.forward * v;
+
+        shooting_audio.clip = fire_clip;
+        shooting_audio.Play();
 
         reloading = true;
     }
