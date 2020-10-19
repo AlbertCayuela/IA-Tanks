@@ -12,6 +12,7 @@ public class TankStateManager : MonoBehaviour
     DetectEnemy detect_enemy;
     SeekTarget seek;
     Shoot shoot;
+    PatrolAgent patrol;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class TankStateManager : MonoBehaviour
         detect_enemy = GetComponent<DetectEnemy>();
         seek = GetComponent<SeekTarget>();
         shoot = GetComponent<Shoot>();
+        patrol = GetComponent<PatrolAgent>();
     }
 
     // Update is called once per frame
@@ -27,16 +29,21 @@ public class TankStateManager : MonoBehaviour
     {
         if (current_state == STATE.WANDERING)
             wander.enabled = true;
-        else
-            wander.enabled = false;
+        //else
+        //    wander.enabled = false;
 
-        if (detect_enemy.enemy_detected == true)
-        {
-            current_state = STATE.SEEKING;
-            seek.enabled = true;
-            shoot.enabled = true;
-        }
-        else
-            seek.enabled = false;
+        //if (detect_enemy.enemy_detected == true)
+        //{
+        //    current_state = STATE.SEEKING;
+        //    seek.enabled = true;
+        //    shoot.enabled = true;
+        //}
+        //else
+        //    seek.enabled = false;
+
+        if (current_state == STATE.PATROLING)
+            patrol.enabled = true;
+        //else
+        //    patrol.enabled = false;
     }
 }

@@ -7,10 +7,14 @@ public class CountDownTimer : MonoBehaviour
     public int countDownTimer;
     public Text countDownDisplay;
 
+    public GameObject patrol_tank_manager;
+    public GameObject wander_tank_manager;
+
     private void Start()
     {
         StartCoroutine(CountDown());
-
+        wander_tank_manager.GetComponent<TankStateManager>().enabled = false;
+        patrol_tank_manager.GetComponent<TankStateManager>().enabled = false;
     }
 
     IEnumerator CountDown()
@@ -27,6 +31,8 @@ public class CountDownTimer : MonoBehaviour
         countDownDisplay.text = "GO!";
         yield return new WaitForSeconds(1f);
         countDownDisplay.gameObject.SetActive(false);
+        wander_tank_manager.GetComponent<TankStateManager>().enabled = true;
+        patrol_tank_manager.GetComponent<TankStateManager>().enabled = true;
 
 
     }
