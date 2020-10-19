@@ -72,9 +72,9 @@ public class Shoot : MonoBehaviour
 
     void ShootBullet()
     {
-        bullet = Instantiate(bullet, bullet_spawn.position, Quaternion.identity);
-        bullet.transform.LookAt(target.transform);
-        bullet.velocity = turret.transform.forward * v;
+        Rigidbody new_bullet = Instantiate(bullet, bullet_spawn.position, Quaternion.identity);
+        new_bullet.transform.LookAt(target.transform);
+        new_bullet.velocity = turret.transform.forward * v;
 
         shooting_audio.clip = fire_clip;
         shooting_audio.Play();
