@@ -37,15 +37,6 @@ public class Shoot : MonoBehaviour
 
         y = target.transform.position.y;
 
-        //float square_part = (v * v * v * v) - g * (g * (x * x) + 2 * y * (v * v));
-        //float squared_res = (v * v) + Mathf.Sqrt(square_part);
-        //angle_tan = squared_res / (g * x);
-        //angle = Mathf.Rad2Deg * Mathf.Atan(angle_tan);
-        //Debug.Log(angle);
-
-        //angle = Mathf.Pow(Mathf.Sin((g*x)/(v*v)), -1);
-        //angle = angle / 2;
-
         //PARABOLIC SHOT FORMULA USED --> angle = (Mathf.Asin((g * x) / (v * v))/(2)
 
         float part1 = Mathf.Asin((g * x) / (v * v));
@@ -57,14 +48,13 @@ public class Shoot : MonoBehaviour
         turret.transform.LookAt(target.transform);
         turret.transform.Rotate(turret.transform.right, angle, Space.World);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || !reloading)
         {
             ShootBullet();
         }
 
         if (reloading)
         {
-            // reloading_timer -= Time.deltaTime;
             Reload();
         }
          
