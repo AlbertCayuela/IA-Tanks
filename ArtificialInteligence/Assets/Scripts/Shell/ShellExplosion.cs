@@ -6,7 +6,7 @@ public class ShellExplosion : MonoBehaviour
     public ParticleSystem m_ExplosionParticles;       
     public AudioSource m_ExplosionAudio;              
     public float m_MaxDamage = 100f;                  
-    public float m_ExplosionForce = 1000f;            
+    //public float m_ExplosionForce = 1000f;            
     public float m_MaxLifeTime = 2f;                  
     public float m_ExplosionRadius = 5f;              
 
@@ -28,7 +28,7 @@ public class ShellExplosion : MonoBehaviour
             Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
             if (!targetRigidbody)
                 continue;
-            targetRigidbody.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
+            //targetRigidbody.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
             TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth>();
             if (!targetHealth)
                 continue;
