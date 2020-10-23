@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    //ENEMY DETECTION VARIABLES
+    public float range_to_detect; //range where enemy can be detected
+    public float distance_to_enemy; //actual distance to enemy
+    public bool enemy_detected = false;
 
     public GameObject target; //enemy tank
     public GameObject turret; //tank turret
@@ -14,6 +18,7 @@ public class Shoot : MonoBehaviour
     public AudioClip charging_clip;
     public AudioClip fire_clip;
 
+    //PARABOLIC SHOT VARIABLES
     public float v = 30f; //bullet valocity
     public float g = Physics.gravity.y;  //gravity
     public float x; //distance from tank to target
@@ -33,6 +38,8 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DetectEnemy();
+
         x = Vector3.Distance(target.transform.position, turret.transform.position);
 
         y = target.transform.position.y;
@@ -48,7 +55,7 @@ public class Shoot : MonoBehaviour
         turret.transform.LookAt(target.transform);
         turret.transform.Rotate(turret.transform.right, angle, Space.World);
 
-        if (Input.GetKeyDown(KeyCode.Space) || !reloading)
+        if (!reloading)
         {
             ShootBullet();
         }
@@ -59,7 +66,6 @@ public class Shoot : MonoBehaviour
         }
          
     }
-
     void ShootBullet()
     {
         Rigidbody new_bullet = Instantiate(bullet, bullet_spawn.position, Quaternion.identity);
@@ -80,7 +86,14 @@ public class Shoot : MonoBehaviour
             reloading = false;
             reloading_timer = 2;
         }
-           
+    }
 
+    void DetectEnemy()
+    {
+        distance_to_enemy = Vector3.Distance(target.transform.position, transform.position);
+        if(distance_to_enemy <= range_to_detect)
+        {
+            enemy_detected = true;
+        }
     }
 }
