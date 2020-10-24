@@ -6,10 +6,11 @@ public class Flee : MonoBehaviour
 {
     private NavMeshAgent agent;
 
-    public GameObject tank; //player
+    public GameObject target;
 
-    public float EnemyDistanceRun = 4.0f;
+    //public float enemy_distance_run = 50;
 
+    //public float distance;
 
     // Use this for initialization
     void Start()
@@ -19,24 +20,17 @@ public class Flee : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        //distance = Vector3.Distance(transform.position, target.transform.position);
 
-        float distance = Vector3.Distance(transform.position, tank.transform.position);
-
-        Debug.Log("Distance:  +" + distance);
+        //Debug.Log("Distance:  +" + distance);
 
         //Run away from tanks
+        Vector3 dir_to_tank = transform.position - target.transform.position;
 
-        if (distance < EnemyDistanceRun)
-        {
-            Vector3 dirToTank = transform.position - tank.transform.position;
+        Vector3 new_pos = transform.position + dir_to_tank;
 
-            Vector3 newPos = transform.position + dirToTank;
-
-            agent.SetDestination(newPos);
-
-        }
-
+        agent.SetDestination(new_pos);
     }
 
    
