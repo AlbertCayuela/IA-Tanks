@@ -303,3 +303,5 @@ C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence\Temp\Bin\Debug\UnityEdi
 C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence\Temp\Bin\Debug\UnityEngine.Purchasing.dll
 C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence\Temp\Bin\Debug\UnityEngine.Purchasing.pdb
 C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence\Temp\Bin\Debug\UnityEditor.Purchasing.pdb
+C:\Users\leix_\OneDrive\Documentos\GitHub\IA\ArtificialInteligence\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\leix_\OneDrive\Documentos\GitHub\IA\ArtificialInteligence\obj\Debug\Assembly-CSharp.dll
