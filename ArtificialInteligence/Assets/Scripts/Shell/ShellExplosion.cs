@@ -37,15 +37,18 @@ public class ShellExplosion : MonoBehaviour
 
             targetHealth.TakeDamage(damage);
         }
+        if (other.CompareTag("bullet") == false)
+        {
 
-        m_ExplosionParticles.transform.parent = null;
+            m_ExplosionParticles.transform.parent = null;
 
-        m_ExplosionParticles.Play();
+            m_ExplosionParticles.Play();
 
-        m_ExplosionAudio.Play();
+            m_ExplosionAudio.Play();
 
-        Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.duration);
-        Destroy(gameObject);
+            Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.duration);
+            Destroy(gameObject);
+        }
     }
 
 
