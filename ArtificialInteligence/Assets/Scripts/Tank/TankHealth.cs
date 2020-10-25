@@ -17,6 +17,7 @@ public class TankHealth : MonoBehaviour
     private bool m_Dead;
 
     public GameObject FloatingTextPrefab;
+    public Camera cam;
 
     private void Awake()
     {
@@ -61,6 +62,7 @@ public class TankHealth : MonoBehaviour
     {
 
         var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        go.transform.LookAt(-cam.transform.position);
         go.GetComponent<TextMesh>().text = m_CurrentHealth.ToString("f0");
     }
 
