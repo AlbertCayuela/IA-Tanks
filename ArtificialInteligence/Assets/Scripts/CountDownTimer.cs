@@ -10,11 +10,16 @@ public class CountDownTimer : MonoBehaviour
     public GameObject patrol_tank_manager;
     public GameObject wander_tank_manager;
 
+    public Text timer_text;
+    Timer timer;
+
     private void Start()
     {
         StartCoroutine(CountDown());
         wander_tank_manager.GetComponent<TankStateManager>().enabled = false;
         patrol_tank_manager.GetComponent<TankStateManager>().enabled = false;
+        timer = GetComponent<Timer>();
+        timer_text.gameObject.SetActive(false);
     }
 
     IEnumerator CountDown()
@@ -33,7 +38,7 @@ public class CountDownTimer : MonoBehaviour
         countDownDisplay.gameObject.SetActive(false);
         wander_tank_manager.GetComponent<TankStateManager>().enabled = true;
         patrol_tank_manager.GetComponent<TankStateManager>().enabled = true;
-
-
+        timer.enabled = true;
+        timer_text.gameObject.SetActive(true);
     }
 }
