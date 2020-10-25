@@ -16,7 +16,7 @@ public class Flee : MonoBehaviour
 
     private NavMeshHit hit;
 
-    public float radius = 2f; //radius of the zone the next point will be created
+    public float radius = 4.5f; //radius of the zone the next point will be created
 
     //min and max offset where 
     public float min_offset = 10f;
@@ -30,7 +30,7 @@ public class Flee : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-            
+
     }
 
     // Update is called once per frame
@@ -45,54 +45,55 @@ public class Flee : MonoBehaviour
 
         Vector3 new_pos = transform.position + dir_to_tank;
 
-       
+
 
         time_stuck += Time.deltaTime;
 
 
 
-        if (CheckIfWalkable2(dir_to_tank) || CheckIfWalkable(new_pos)|| TargetNotAchievable())
-        {
-            if (stuck)
-            {
-                min_offset = -min_offset;
-                max_offset = -max_offset;
-                //stuck = false;
-            }
-    
-            if (stuck)
-            {
-                min_offset = -min_offset;
-                max_offset = -max_offset;
-                stuck = false;
-            }
+        //    if (CheckIfWalkable2(dir_to_tank) || CheckIfWalkable(new_pos)|| TargetNotAchievable())
+        //    {
+        //        if (stuck)
+        //        {
+        //            min_offset = -min_offset;
+        //            max_offset = -max_offset;
+        //            //stuck = false;
+        //        }
 
-            time_stuck = 0;
-            agent.SetDestination(new_pos);
-        }
+        //        if (stuck)
+        //        {
+        //            min_offset = -min_offset;
+        //            max_offset = -max_offset;
+        //            stuck = false;
+        //        }
+
+        //        time_stuck = 0;
+        //        agent.SetDestination(new_pos);
+        //    }
+        //}
+        //    bool CheckIfWalkable(Vector3 new_pos)
+        //    {
+        //        if (NavMesh.Raycast(transform.position, new_pos, out hit, NavMesh.AllAreas))
+        //            return true;
+        //        else return false;
+        //    }
+        //     bool CheckIfWalkable2(Vector3 dir_to_tank)
+        //    {
+        //         if (NavMesh.Raycast(transform.position, dir_to_tank, out hit, NavMesh.AllAreas))
+        //        return true;
+        //       else return false;
+        //     }
+
+
+
+        //bool TargetNotAchievable()
+        //    {
+        //        if (time_stuck >= 10)
+        //            stuck = true;
+
+        //        return stuck;
+        //    }
+
+
     }
-        bool CheckIfWalkable(Vector3 new_pos)
-        {
-            if (NavMesh.Raycast(transform.position, new_pos, out hit, NavMesh.AllAreas))
-                return true;
-            else return false;
-        }
-         bool CheckIfWalkable2(Vector3 dir_to_tank)
-        {
-             if (NavMesh.Raycast(transform.position, dir_to_tank, out hit, NavMesh.AllAreas))
-            return true;
-           else return false;
-         }
-
-
-
-    bool TargetNotAchievable()
-        {
-            if (time_stuck >= 10)
-                stuck = true;
-
-            return stuck;
-        }
-
-
-    }
+}
