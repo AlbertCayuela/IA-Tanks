@@ -8,8 +8,8 @@ public class TankUI : MonoBehaviour
 
     public Image ui_detected;
     Shoot shoot;
-   
-  
+
+    public float count_down_reload;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +20,16 @@ public class TankUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //UICountDown();
+       
         EnemyDetectedUI();
-        //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas)
     }
 
     void EnemyDetectedUI()
     {
         if(shoot.enemy_detected)
         {
+        count_down_reload += Time.deltaTime;
         ui_detected.gameObject.SetActive(true);
 
         float offset_pos_y = transform.position.y + 5f;
@@ -38,7 +39,14 @@ public class TankUI : MonoBehaviour
         Vector2 screen_point = Camera.main.WorldToScreenPoint(offset_pos);
 
         ui_detected.transform.position = screen_point;
+
+         if (count_down_reload >= 2)
+            {
+            ui_detected.gameObject.SetActive(false);
+
+             }
+
         }
-        ui_detected.gameObject.SetActive(false);
+
     }
 }
