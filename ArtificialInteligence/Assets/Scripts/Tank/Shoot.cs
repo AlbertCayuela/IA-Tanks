@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     //ENEMY DETECTION VARIABLES
-    public float range_to_detect; //range where enemy can be detected
+    public float range_to_detect = 20f; //range where enemy can be detected
     public float distance_to_enemy; //actual distance to enemy
     public bool enemy_detected = false;
 
@@ -32,7 +32,6 @@ public class Shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -55,7 +54,7 @@ public class Shoot : MonoBehaviour
         turret.transform.LookAt(target.transform);
         turret.transform.Rotate(turret.transform.right, angle, Space.World);
 
-        if (!reloading)
+        if (!reloading && enemy_detected)
         {
             ShootBullet();
         }
@@ -91,7 +90,7 @@ public class Shoot : MonoBehaviour
     void DetectEnemy()
     {
         distance_to_enemy = Vector3.Distance(target.transform.position, transform.position);
-        if(distance_to_enemy <= range_to_detect)
+        if (distance_to_enemy <= range_to_detect)
         {
             enemy_detected = true;
         }

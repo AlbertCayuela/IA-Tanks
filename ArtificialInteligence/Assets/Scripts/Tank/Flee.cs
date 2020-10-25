@@ -45,7 +45,7 @@ public class Flee : MonoBehaviour
 
         Vector3 new_pos = transform.position + dir_to_tank;
 
-
+        Debug.DrawLine(transform.position, new_pos, Color.red);
 
         time_stuck += Time.deltaTime;
 
@@ -96,4 +96,6 @@ public class Flee : MonoBehaviour
 
 
     }
+
+
 }

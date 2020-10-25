@@ -12,7 +12,6 @@ public class TankStateManager : MonoBehaviour
 
     SteeringWander wander;
     Flee flee;
-    DetectEnemy detect_enemy;
     SeekTarget seek;
     Shoot shoot;
     PatrolAgent patrol;
@@ -21,7 +20,6 @@ public class TankStateManager : MonoBehaviour
     void Start()
     {
         wander = GetComponent<SteeringWander>();
-        detect_enemy = GetComponent<DetectEnemy>();
         seek = GetComponent<SeekTarget>();
         shoot = GetComponent<Shoot>();
         patrol = GetComponent<PatrolAgent>();
@@ -64,12 +62,12 @@ public class TankStateManager : MonoBehaviour
     //CHECK IF ENEMY IS DETECTED AND ON WHAT TYPE OF TANK IS THE SCRIPT ACTING
     void EnemyIsDetected()
     {
-        if (detect_enemy.enemy_detected && is_patrol_tank)
+        if (shoot.enemy_detected && is_patrol_tank)
         {
             current_state = STATE.SEEKING;
         }
 
-        if (detect_enemy.enemy_detected && is_wander_tank)
+        if (shoot.enemy_detected && is_wander_tank)
         {
             current_state = STATE.FLEEING;
         }
