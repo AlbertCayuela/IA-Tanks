@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class TankHealth : MonoBehaviour
 {
-    public float m_StartingHealth = 1000000f;          
+    public float m_StartingHealth = 100f;          
     public Slider m_Slider;                        
     public Image m_FillImage;                      
     public Color m_FullHealthColor = Color.green;  
@@ -14,8 +14,9 @@ public class TankHealth : MonoBehaviour
     private AudioSource m_ExplosionAudio;          
     private ParticleSystem m_ExplosionParticles;   
     private float m_CurrentHealth;  
-    private bool m_Dead;            
+    private bool m_Dead;
 
+    public GameObject FloatingTextPrefab;
 
     private void Awake()
     {
@@ -42,12 +43,26 @@ public class TankHealth : MonoBehaviour
 
         SetHealthUI();
 
+        //Trigger floating text here
+        if(FloatingTextPrefab)
+        {
+
+            ShowFloatingText();
+
+        }
+
         if(m_CurrentHealth<=0f && !m_Dead)
         {
             OnDeath();
         }
     }
 
+    void ShowFloatingText()
+    {
+
+        var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = m_CurrentHealth.ToString("f0");
+    }
 
     private void SetHealthUI()
     {
