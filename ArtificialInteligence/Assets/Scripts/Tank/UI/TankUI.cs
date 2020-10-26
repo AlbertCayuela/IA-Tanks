@@ -9,8 +9,11 @@ public class TankUI : MonoBehaviour
     public Image ui_detected;
     public Image ui_reloading;
 
+    public GameObject target;
+
     Shoot shoot;
     TankHealth tank_health;
+    TankHealth target_health;
 
     private float count_down_detected;
     private float count_down_reload;
@@ -23,6 +26,7 @@ public class TankUI : MonoBehaviour
         count_down_detected = 0f;
         count_down_reload = 0f;
         tank_health = GetComponent<TankHealth>();
+        target_health = target.GetComponent<TankHealth>();
     }
 
     // Update is called once per frame
@@ -31,8 +35,10 @@ public class TankUI : MonoBehaviour
         //UICountDown();
        
         EnemyDetectedUI();
-        
-        ReloadingUI();
+        if (tank_health.m_CurrentHealth > 0 && target_health.m_CurrentHealth > 0)
+            ReloadingUI();
+        else if(tank_health.m_CurrentHealth<=0 || target_health.m_CurrentHealth<=0)
+            ui_reloading.gameObject.SetActive(false);
 
 
     }
