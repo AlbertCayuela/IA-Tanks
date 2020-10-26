@@ -43,7 +43,7 @@ MonoBehaviour:
     width: 1280
     height: 941
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 121
+  controlID: 115
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 61
+  controlID: 161
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 15
+  controlID: 59
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 15330
+  m_LastSelectedObjectID: 15350
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -639,9 +639,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7e3b0000
-      m_LastClickedID: 15230
-      m_ExpandedIDs: 30fbffff6a3b0000
+      m_SelectedIDs: f63b0000
+      m_LastClickedID: 15350
+      m_ExpandedIDs: 30fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -743,21 +743,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI
+    - Assets/Scripts/Tank
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/UI
+  - Assets/Scripts/Tank
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 3}
-    m_SelectedIDs: 24440000
-    m_LastClickedID: 17444
-    m_ExpandedIDs: 000000005e430000604300006243000064430000664300007843000000ca9a3b
+    m_SelectedIDs: 66430000
+    m_LastClickedID: 17254
+    m_ExpandedIDs: 000000005e430000604300006243000064430000664300007a43000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -49,16 +49,20 @@ public class Shoot : MonoBehaviour
         angle_sin = part1 / 2;
         angle = Mathf.Asin(angle_sin) * Mathf.Rad2Deg;
 
-
         //rotate the turret
-        turret.transform.LookAt(target.transform);
-        turret.transform.Rotate(turret.transform.right, angle, Space.World);
+        if (enemy_detected)
+        {
+            //turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, target.transform.rotation, 30f * Time.deltaTime);
+            //turret.transform.rotation = Quaternion.Slerp(turret.transform.rotation, target.transform.rotation, 2f);
+            turret.transform.LookAt(target.transform);
+            turret.transform.Rotate(turret.transform.right, angle, Space.World);
+        }
 
         if (!reloading && enemy_detected)
         {
             ShootBullet();
         }
-
+    
         if (reloading)
         {
             Reload();
