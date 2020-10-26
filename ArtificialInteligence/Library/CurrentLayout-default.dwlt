@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 132
+  controlID: 121
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 27
+  controlID: 61
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 62
+  controlID: 15
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -292,8 +292,8 @@ MonoBehaviour:
     y: 0
     width: 301
     height: 891
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -639,9 +639,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ee3b0000
-      m_LastClickedID: 15342
-      m_ExpandedIDs: 10fbffff6a3b0000
+      m_SelectedIDs: 7e3b0000
+      m_LastClickedID: 15230
+      m_ExpandedIDs: 30fbffff6a3b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -743,21 +743,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/UI
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 72430000
-    m_LastClickedID: 17266
-    m_ExpandedIDs: 0000000056430000584300005a4300005c4300005e43000000ca9a3b
+    scrollPos: {x: 0, y: 3}
+    m_SelectedIDs: 24440000
+    m_LastClickedID: 17444
+    m_ExpandedIDs: 000000005e430000604300006243000064430000664300007843000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -785,7 +785,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000056430000584300005a4300005c4300005e430000
+    m_ExpandedIDs: 000000005e43000060430000624300006443000066430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 3241000002a3ffff3242000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1021,9 +1021,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.36671004, y: -0.1453826, z: 0.058138732, w: -0.9170647}
   m_Size:
-    m_Target: 26.416786
+    m_Target: 32.92012
     speed: 2
-    m_Value: 25.27922
+    m_Value: 32.92012
   m_Ortho:
     m_Target: 0
     speed: 2
