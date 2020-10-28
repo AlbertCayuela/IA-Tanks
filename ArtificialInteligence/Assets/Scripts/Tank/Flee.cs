@@ -5,25 +5,13 @@ using UnityEngine.AI;
 
 public class Flee : MonoBehaviour
 {
+
     private NavMeshAgent agent;
 
-    public GameObject target;
+    public GameObject tank;
 
-    public float time_stuck; //variable created to make sure the tank is not stuck
-    public bool stuck = false;
-    //public float enemy_distance_run = 50;
-    //vector3 target points
+    public float EnemyDistanceRun = 5.0f;
 
-    private NavMeshHit hit;
-
-    public float radius = 4.5f; //radius of the zone the next point will be created
-
-    //min and max offset where 
-    public float min_offset = 10f;
-    public float max_offset = 20f;
-
-
-    //public float distance;
 
     // Use this for initialization
     void Start()
@@ -36,63 +24,23 @@ public class Flee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //distance = Vector3.Distance(transform.position, target.transform.position);
-
-        //Debug.Log("Distance:  +" + distance);
-
-        //Run away from tanks
-        Vector3 dir_to_tank = transform.position - target.transform.position;
-
-        Vector3 new_pos = transform.position + dir_to_tank;
-
-        Debug.DrawLine(transform.position, new_pos, Color.red);
-
-        time_stuck += Time.deltaTime;
 
 
+        float distance = Vector3.Distance(transform.position, tank.transform.position);
 
-        //    if (CheckIfWalkable2(dir_to_tank) || CheckIfWalkable(new_pos)|| TargetNotAchievable())
-        //    {
-        //        if (stuck)
-        //        {
-        //            min_offset = -min_offset;
-        //            max_offset = -max_offset;
-        //            //stuck = false;
-        //        }
+       if (distance < EnemyDistanceRun)
+        {
 
-        //        if (stuck)
-        //        {
-        //            min_offset = -min_offset;
-        //            max_offset = -max_offset;
-        //            stuck = false;
-        //        }
+            Vector3 dirToTank = transform.position  - tank.transform.position;
 
-        //        time_stuck = 0;
-        //        agent.SetDestination(new_pos);
-        //    }
-        //}
-        //    bool CheckIfWalkable(Vector3 new_pos)
-        //    {
-        //        if (NavMesh.Raycast(transform.position, new_pos, out hit, NavMesh.AllAreas))
-        //            return true;
-        //        else return false;
-        //    }
-        //     bool CheckIfWalkable2(Vector3 dir_to_tank)
-        //    {
-        //         if (NavMesh.Raycast(transform.position, dir_to_tank, out hit, NavMesh.AllAreas))
-        //        return true;
-        //       else return false;
-        //     }
+            Vector3 newPos = transform.position + dirToTank;
 
+            agent.SetDestination(newPos);
 
+        }
 
-        //bool TargetNotAchievable()
-        //    {
-        //        if (time_stuck >= 10)
-        //            stuck = true;
+       
 
-        //        return stuck;
-        //    }
 
 
     }
