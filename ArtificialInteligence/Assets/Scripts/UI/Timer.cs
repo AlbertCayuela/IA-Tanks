@@ -9,12 +9,14 @@ public class Timer : MonoBehaviour
 
     public Text timerText;
     private float startTimer;
+    public GameObject pause_objects;
    
 
     // Start is called before the first frame update
     void Start()
     {
         startTimer = Time.time;
+        pause_objects.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,12 +34,20 @@ public class Timer : MonoBehaviour
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
+                pause_objects.SetActive(true);
             }
             else if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
+                pause_objects.SetActive(false);
             }
         }
 
+    }
+
+    public void ResumeFunction()
+    {
+        Time.timeScale = 1;
+        pause_objects.SetActive(false);
     }
 }
