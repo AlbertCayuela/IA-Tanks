@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
 
     public Text timerText;
     private float startTimer;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,18 @@ public class Timer : MonoBehaviour
         string seconds = (t % 60).ToString("f0");
 
         timerText.text = "Game timer: " + seconds +"s";
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+            }
+            else if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+        }
+
     }
 }
