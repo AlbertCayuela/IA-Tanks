@@ -50,4 +50,15 @@ public class Timer : MonoBehaviour
         Time.timeScale = 1;
         pause_objects.SetActive(false);
     }
+
+    public void GitHubFunction()
+    {
+        Application.OpenURL("https://github.com/AlbertCayuela/IA");
+    }
+
+    public void ExitFunction()
+    {
+        Application.Quit();
+        Debug.Log("Game is existing yet");
+    }
 }

@@ -40,7 +40,7 @@ public class TankStateManager : MonoBehaviour
         if (current_state == STATE.PATROLING)
         {
             patrol.enabled = true;
-            Debug.Log("STATE PATROLING");
+            //Debug.Log("STATE PATROLING");
         }   
         //else if (current_state != STATE.PATROLING)
            // patrol.enabled = false;
