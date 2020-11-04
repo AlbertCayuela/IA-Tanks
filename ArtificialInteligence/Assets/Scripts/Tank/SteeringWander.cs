@@ -57,13 +57,6 @@ public class SteeringWander : MonoBehaviour
         //reduce amount of points calculated --> if distance is less than x or the actual point is not walkable, calculate new point
         if (distance_to_target <= distance_to_change || CheckIfWalkable(world_target) || TargetNotAchievable())
         {
-            if (stuck)
-            {
-                min_offset = -min_offset;
-                max_offset = -max_offset;
-                //stuck = false;
-            }
-
             local_target = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
             local_target.Normalize();
             local_target *= radius;

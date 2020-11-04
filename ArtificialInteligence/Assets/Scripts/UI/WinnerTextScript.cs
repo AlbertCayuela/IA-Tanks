@@ -11,6 +11,7 @@ public class WinnerTextScript : MonoBehaviour
     public Text both_died;
     public GameObject wander_tank;
     public GameObject patrol_tank;
+    public GameObject ui_tank;
     TankHealth wander_tank_health;
     TankHealth patrol_tank_health;
     Shoot patrol_shoot;
@@ -42,6 +43,7 @@ public class WinnerTextScript : MonoBehaviour
             timer.gameObject.SetActive(false);
             patrol_shoot.enabled = false;
             wander_shoot.enabled = false;
+            ui_tank.SetActive(false);
         }
     }
 }
