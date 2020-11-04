@@ -46,12 +46,20 @@ public class TankStateManager : MonoBehaviour
            // patrol.enabled = false;
 
         if (current_state == STATE.SEEKING)
+        {
             seek.enabled = true;
+            patrol.enabled = false;
+        }
+
         //else if (current_state != STATE.SEEKING)
             //seek.enabled = false;
 
         if (current_state == STATE.FLEEING)
+        {
             flee.enabled = true;
+            wander.enabled = false;
+        }
+
         //else if (current_state != STATE.FLEEING)
             //flee.enabled = false;
 

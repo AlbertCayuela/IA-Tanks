@@ -98,5 +98,9 @@ public class Shoot : MonoBehaviour
         {
             enemy_detected = true;
         }
+        else
+        {
+            enemy_detected = false;
+        }
     }
 }

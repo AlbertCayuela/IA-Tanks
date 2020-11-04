@@ -17,33 +17,17 @@ public class Flee : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 dirToTank = transform.position - tank.transform.position;
 
+        Vector3 newPos = transform.position + dirToTank;
 
-        float distance = Vector3.Distance(transform.position, tank.transform.position);
+        Debug.DrawLine(transform.position, newPos, Color.cyan);
 
-       if (distance < EnemyDistanceRun)
-        {
-
-            Vector3 dirToTank = transform.position  - tank.transform.position;
-
-            Vector3 newPos = transform.position + dirToTank;
-
-            agent.SetDestination(newPos);
-
-        }
-
-       
-
-
-
+        agent.SetDestination(newPos);
     }
-
-
 }
