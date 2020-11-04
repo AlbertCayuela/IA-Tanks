@@ -24,4 +24,14 @@ public class MainMenuController : MonoBehaviour
         ui_ingame.SetActive(true);
         this.gameObject.SetActive(false);
     }
+
+    public void GitHub()
+    {
+        Application.OpenURL("https://github.com/AlbertCayuela/IA");
+    }
+
+    public void Extit()
+    {
+        Application.Quit();
+    }
 }
