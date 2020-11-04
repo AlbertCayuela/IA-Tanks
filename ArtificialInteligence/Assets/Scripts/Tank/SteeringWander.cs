@@ -29,9 +29,6 @@ public class SteeringWander : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         agent = GetComponent<NavMeshAgent>();
 
         //calculate first wandering point
