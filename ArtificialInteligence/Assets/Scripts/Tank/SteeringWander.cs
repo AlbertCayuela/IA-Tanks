@@ -23,9 +23,6 @@ public class SteeringWander : MonoBehaviour
 
     public float distance_to_target; //distance between tank and target point
 
-    public float time_stuck; //variable created to make sure the tank is not stuck
-    public bool stuck = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,15 +41,13 @@ public class SteeringWander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time_stuck += Time.deltaTime;
-
         //calculate distance to the next point the tank is going
         distance_to_target = Vector3.Distance(world_target, transform.position);
         //draw a debug line to check where is the point while doing the game
         Debug.DrawLine(transform.position, world_target, Color.green);
 
         //reduce amount of points calculated --> if distance is less than x or the actual point is not walkable, calculate new point
-        if (distance_to_target <= distance_to_change || CheckIfWalkable(world_target) || TargetNotAchievable())
+        if (distance_to_target <= distance_to_change || CheckIfWalkable(world_target))
         {
             local_target = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
             local_target.Normalize();
@@ -61,15 +56,6 @@ public class SteeringWander : MonoBehaviour
 
             world_target = transform.TransformPoint(local_target);
             world_target.y = 0f;
-
-            if (stuck)
-            {
-                min_offset = -min_offset;
-                max_offset = -max_offset;
-                stuck = false;
-            }
-
-            time_stuck = 0;
         }
 
         //set tank target as agent destination
@@ -82,14 +68,6 @@ public class SteeringWander : MonoBehaviour
         if (NavMesh.Raycast(transform.position, world_target, out hit, NavMesh.AllAreas))
             return true;
         else return false;
-    }
-
-    bool TargetNotAchievable()
-    {
-        if (time_stuck >= 10)
-            stuck = true;
-
-        return stuck;
     }
  
 }
