@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WinnerTextScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class WinnerTextScript : MonoBehaviour
     TankHealth patrol_tank_health;
     Shoot patrol_shoot;
     Shoot wander_shoot;
+    float end_timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,17 +35,30 @@ public class WinnerTextScript : MonoBehaviour
     {
         if(wander_tank_health.m_CurrentHealth <= 0 && patrol_tank_health.m_CurrentHealth <= 0)
         {
+            end_timer += Time.deltaTime;
             text_winner.gameObject.SetActive(false);
             both_died.gameObject.SetActive(true);
             timer.gameObject.SetActive(false);
+            if(end_timer >= 3.0f)
+            {
+                SceneManager.LoadScene(2);
+                Debug.Log("Loding End Menu");
+            }
+
         }
         else if(wander_tank_health.m_CurrentHealth<=0 || patrol_tank_health.m_CurrentHealth <= 0)
         {
+            end_timer += Time.deltaTime;
             text_winner.gameObject.SetActive(true);
             timer.gameObject.SetActive(false);
             patrol_shoot.enabled = false;
             wander_shoot.enabled = false;
             ui_tank.SetActive(false);
+            if(end_timer >= 3.0f)
+            {
+                SceneManager.LoadScene(2);
+                Debug.Log("Loading End Menu");
+            }
         }
     }
 }
