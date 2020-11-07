@@ -24,10 +24,10 @@ public class Timer : MonoBehaviour
     {
         float t = Time.time - startTimer;
 
-        //string minutes = ((int)t / 60).ToString();
+        string minutes = ((int)t / 60).ToString();
         string seconds = (t % 60).ToString("f0");
 
-        timerText.text = "Game timer: " + seconds +"s";
+        timerText.text = "Game timer: "+ minutes + ":" + seconds +"s";
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
