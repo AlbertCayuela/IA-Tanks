@@ -6,7 +6,6 @@ public class CountDownTimer : MonoBehaviour
 {
     public int countDownTimer;
     public Text countDownDisplay;
-    //public AudioSource m_CountDown;
 
     public GameObject patrol_tank_manager;
     public GameObject wander_tank_manager;

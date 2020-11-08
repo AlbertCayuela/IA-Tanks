@@ -33,17 +33,11 @@ public class TankStateManager : MonoBehaviour
         {
             wander.enabled = true;
         }
-            
-        //else if (current_state != STATE.WANDERING)
-            //wander.enabled = false;
 
         if (current_state == STATE.PATROLING)
         {
             patrol.enabled = true;
-            //Debug.Log("STATE PATROLING");
         }   
-        //else if (current_state != STATE.PATROLING)
-           // patrol.enabled = false;
 
         if (current_state == STATE.SEEKING)
         {
@@ -51,17 +45,11 @@ public class TankStateManager : MonoBehaviour
             patrol.enabled = false;
         }
 
-        //else if (current_state != STATE.SEEKING)
-            //seek.enabled = false;
-
         if (current_state == STATE.FLEEING)
         {
             flee.enabled = true;
             wander.enabled = false;
         }
-
-        //else if (current_state != STATE.FLEEING)
-            //flee.enabled = false;
 
         EnemyIsDetected();
       
