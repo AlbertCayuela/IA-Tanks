@@ -53,13 +53,13 @@ In Game Scene with:
 -  	Explosion effect
 -  	Interactive UI with who won
 
-- Pause Menu with while pressing esc with:
+Pause Menu with while pressing esc with:
 
 -  	Resume button
 -  	GitHub button
 -  	Exit button
 
-- End Game menu with:
+End Game menu with:
 
 -  	Play Again button
 -  	GitHub button
