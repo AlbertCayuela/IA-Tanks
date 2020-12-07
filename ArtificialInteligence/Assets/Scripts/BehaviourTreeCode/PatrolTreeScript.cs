@@ -25,17 +25,19 @@ public class PatrolTreeScript : MonoBehaviour
     public Vector3 PatrolDestination()
     {
 
-        if(Vector3.Distance(destination, transform.position) < 1.5f && i == 8)
+        if (Vector3.Distance(destination, transform.position) < 1.5f && i == 8)
         {
+            Debug.Log("is 8");
             i = 0;
             destination = patrolling_points[i].position;
         }
-        else if(Vector3.Distance(destination, transform.position) < 1.5f)
+        else if (Vector3.Distance(destination, transform.position) < 1.5f)
         {
             i++;
             destination = patrolling_points[i].position;
         }
-        destination.y = 0;
+
+        destination = patrolling_points[i].position;
 
         return destination;
     }
