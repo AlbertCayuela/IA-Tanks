@@ -67,7 +67,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Scene
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 600, y: 421}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 128
+  controlID: 150
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 220
+  controlID: 16
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,10 +271,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 708, y: 492}
-  m_MaxSize: {x: 18003, y: 14042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 426
+  controlID: 224
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,10 +317,10 @@ MonoBehaviour:
     y: 0
     width: 1165
     height: 947
-  m_MinSize: {x: 201, y: 421}
-  m_MaxSize: {x: 4001, y: 8021}
+  m_MinSize: {x: 201, y: 442}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 75
+  controlID: 58
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -393,8 +393,8 @@ MonoBehaviour:
     y: 0
     width: 1165
     height: 681
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 28}
   m_Panes:
   - {fileID: 20}
@@ -778,9 +778,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d63e0000
-      m_LastClickedID: 16086
-      m_ExpandedIDs: 10fbffffce3d0000
+      m_SelectedIDs: dc3e0000
+      m_LastClickedID: 16092
+      m_ExpandedIDs: f2faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -882,21 +882,21 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/BehaviourTreeCode
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/BehaviourTreeCode
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\alber\Documents\GitHub\IA\ArtificialInteligence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 12470000
-    m_LastClickedID: 18194
-    m_ExpandedIDs: 00000000084700000a4700000c4700000e470000104700001247000000ca9a3b
+    m_SelectedIDs: 3a470000
+    m_LastClickedID: 18234
+    m_ExpandedIDs: 000000000e470000104700001247000014470000164700001847000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -924,7 +924,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000084700000a4700000c4700000e4700001047000012470000
+    m_ExpandedIDs: 000000000e4700001047000012470000144700001647000018470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1107,9 +1107,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.5671968, y: -37.817425, z: 19.647192}
+    m_Target: {x: -1.9024835, y: -32.681232, z: 26.321321}
     speed: 2
-    m_Value: {x: -2.5671968, y: -37.817425, z: 19.647192}
+    m_Value: {x: -1.9024835, y: -32.681232, z: 26.321321}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1160,9 +1160,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.44137493, y: -0.064265616, z: 0.03171091, w: -0.8944566}
   m_Size:
-    m_Target: 81.50582
+    m_Target: 57.99137
     speed: 2
-    m_Value: 81.50582
+    m_Value: 57.99137
   m_Ortho:
     m_Target: 0
     speed: 2
