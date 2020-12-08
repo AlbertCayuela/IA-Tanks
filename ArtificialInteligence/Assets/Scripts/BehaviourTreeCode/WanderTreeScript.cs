@@ -47,8 +47,6 @@ public class WanderTreeScript : MonoBehaviour
     {
         //calculate distance to the next point the tank is going
         distance_to_target = Vector3.Distance(world_target, transform.position);
-        //draw a debug line to check where is the point while doing the game
-        Debug.DrawLine(transform.position, world_target, Color.green);
 
         //reduce amount of points calculated --> if distance is less than x or the actual point is not walkable, calculate new point
         if (distance_to_target <= distance_to_change || CheckIfWalkable(world_target))
@@ -61,30 +59,11 @@ public class WanderTreeScript : MonoBehaviour
             world_target = transform.TransformPoint(local_target);
             world_target.y = 0f;
         }
-
-        //if (!CheckIfWalkable(world_target))
-        //{
-        //    fails++;
-        //    if(fails >= 50)
-        //    {
-        //        world_target = -world_target;
-        //        fails = 0;
-        //    }
-
-        //}
     }
 
     public Vector3 WanderDestination()
     {
-        if (CheckIfWalkable(world_target))
-        {
-            return world_target;
-        }
-        else
-        {
-            return -world_target;
-        }
-
+        return world_target;
     }
 
     //function to check if the point where the tank is going is in the walkable zone
