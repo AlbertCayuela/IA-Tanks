@@ -16,12 +16,6 @@ public class PatrolTreeScript : MonoBehaviour
         destination = patrolling_points[i].position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public Vector3 PatrolDestination()
     {
 

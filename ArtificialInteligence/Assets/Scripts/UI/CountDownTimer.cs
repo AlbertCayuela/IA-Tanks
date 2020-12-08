@@ -41,7 +41,7 @@ public class CountDownTimer : MonoBehaviour
         countDownDisplay.text = "GO!";
         yield return new WaitForSeconds(1f);
         countDownDisplay.gameObject.SetActive(false);
-        wander_tank_manager.GetComponent<TankStateManager>().enabled = true;
+        //wander_tank_manager.GetComponent<TankStateManager>().enabled = true;
         patrol_tank_tree.GetComponent<BehaviorExecutor>().enabled = true;
         timer.enabled = true;
         timer_text.gameObject.SetActive(true);

@@ -1,44 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class WanderTreeScript : MonoBehaviour
 {
-    public Transform[] wander_points;
 
-    public Vector3 destination;
+    public float radius = 2f; //radius of the zone the next point will be created
 
-    public int i = 0;
+    //min and max offset where 
+    public float min_offset = 10f;
+    public float max_offset = 20f;
+
+    public float distance_to_change = 6.5f; //distance where tank changes target point
+
+    //vector3 target points
+    public Vector3 local_target;
+    public Vector3 world_target;
+
+    private NavMeshAgent agent;
+    private NavMeshHit hit;
+
+    public float distance_to_target; //distance between tank and target point
+
     // Start is called before the first frame update
     void Start()
     {
-        destination = wander_points[i].position;
-    }
+        agent = GetComponent<NavMeshAgent>();
 
-    // Update is called once per frame
-    void Update()
-    {
+        agent.autoBraking = false;
 
+        //calculate first wandering point
+        local_target = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
+        local_target.Normalize();
+        local_target *= radius;
+        local_target += new Vector3(0, 0, Random.Range(min_offset, max_offset));
+
+        world_target = transform.TransformPoint(local_target);
+        world_target.y = 0f;
     }
 
     public Vector3 WanderDestination()
     {
+        //calculate distance to the next point the tank is going
+        distance_to_target = Vector3.Distance(world_target, transform.position);
+        //draw a debug line to check where is the point while doing the game
+        Debug.DrawLine(transform.position, world_target, Color.green);
 
-        if (Vector3.Distance(destination, transform.position) < 1.5f && i == 8)
+        //reduce amount of points calculated --> if distance is less than x or the actual point is not walkable, calculate new point
+        if (distance_to_target <= distance_to_change || CheckIfWalkable(world_target))
         {
-            Debug.Log("is 8");
-            i = 0;
-            destination = wander_points[i].position;
-        }
-        else if (Vector3.Distance(destination, transform.position) < 1.5f)
-        {
-            i++;
-            destination = wander_points[i].position;
+            local_target = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
+            local_target.Normalize();
+            local_target *= radius;
+            local_target += new Vector3(0, 0, Random.Range(min_offset, max_offset));
+
+            world_target = transform.TransformPoint(local_target);
+            world_target.y = 0f;
         }
 
-        destination = wander_points[i].position;
-
-        return destination;
+        return world_target;
     }
+
+    //function to check if the point where the tank is going is in the walkable zone
+    bool CheckIfWalkable(Vector3 wolrd_target)
+    {
+        if (NavMesh.Raycast(transform.position, world_target, out hit, NavMesh.AllAreas))
+            return true;
+        else return false;
+    }
+
 }
