@@ -29,6 +29,9 @@ public class Shoot : MonoBehaviour
     public float reloading_timer = 2f;
     public bool reloading = false;
 
+    public int bullets = 3;
+    public bool has_no_bullets = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,18 +66,33 @@ public class Shoot : MonoBehaviour
         {
             Reload();
         }
+
+        if(bullets <= 0)
+        {
+            has_no_bullets = true;
+        }
+        else if(bullets > 0)
+        {
+            has_no_bullets = false;
+        }
          
     }
     void ShootBullet()
     {
-        Rigidbody new_bullet = Instantiate(bullet, bullet_spawn.position, Quaternion.identity);
-        new_bullet.transform.LookAt(target.transform);
-        new_bullet.velocity = turret.transform.forward * v;
+        if(bullets >= 0)
+        {
+            Rigidbody new_bullet = Instantiate(bullet, bullet_spawn.position, Quaternion.identity);
+            new_bullet.transform.LookAt(target.transform);
+            new_bullet.velocity = turret.transform.forward * v;
 
-        shooting_audio.clip = fire_clip;
-        shooting_audio.Play();
+            shooting_audio.clip = fire_clip;
+            shooting_audio.Play();
 
-        reloading = true;
+            bullets--;
+
+            reloading = true;
+        }
+      
     }
     
     void Reload()
@@ -98,5 +116,10 @@ public class Shoot : MonoBehaviour
         {
             enemy_detected = false;
         }
+    }
+
+    public bool HasNOBullets()
+    {
+        return has_no_bullets;
     }
 }
