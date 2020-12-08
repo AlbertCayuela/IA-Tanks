@@ -67,7 +67,7 @@ public class TankUI : MonoBehaviour
 
     void ReloadingUI()
     {
-        if (shoot.reloading)
+        if (shoot.reloading || shoot.bullets <= 0)
         {
             count_down_reload += Time.deltaTime;
             //ui_reloading.gameObject.SetActive(true);
