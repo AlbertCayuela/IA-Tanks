@@ -129,4 +129,18 @@ public class Shoot : MonoBehaviour
     {
         return has_no_bullets;
     }
+
+    public bool IsEnemyClose()
+    {
+        return enemy_detected;
+    }
+
+    public bool IsEnemyFar()
+    {
+        bool enemy_far;
+
+        enemy_far = !enemy_detected;
+
+        return enemy_far;
+    }
 }

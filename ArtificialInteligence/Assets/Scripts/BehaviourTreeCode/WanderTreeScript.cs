@@ -24,6 +24,8 @@ public class WanderTreeScript : MonoBehaviour
 
     public float distance_to_target; //distance between tank and target point
 
+    public int fails = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class WanderTreeScript : MonoBehaviour
         world_target.y = 0f;
     }
 
-    public Vector3 WanderDestination()
+    void Update()
     {
         //calculate distance to the next point the tank is going
         distance_to_target = Vector3.Distance(world_target, transform.position);
@@ -60,7 +62,29 @@ public class WanderTreeScript : MonoBehaviour
             world_target.y = 0f;
         }
 
-        return world_target;
+        //if (!CheckIfWalkable(world_target))
+        //{
+        //    fails++;
+        //    if(fails >= 50)
+        //    {
+        //        world_target = -world_target;
+        //        fails = 0;
+        //    }
+
+        //}
+    }
+
+    public Vector3 WanderDestination()
+    {
+        if (CheckIfWalkable(world_target))
+        {
+            return world_target;
+        }
+        else
+        {
+            return -world_target;
+        }
+
     }
 
     //function to check if the point where the tank is going is in the walkable zone

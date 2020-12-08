@@ -42,7 +42,7 @@ namespace BBUnity.Actions
         /// and otherwise it will remain in operation.</remarks>
         public override TaskStatus OnUpdate()
         {
-            if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
+            if (!navAgent.pathPending && (navAgent.remainingDistance <= navAgent.stoppingDistance || navAgent.remainingDistance <= 5.0f))
                 return TaskStatus.COMPLETED;
 
             return TaskStatus.RUNNING;

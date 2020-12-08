@@ -6,10 +6,14 @@ using Pada1.BBCore.Framework;
 
 public class EnemyCloseCondition : ConditionBase
 {
+
+    [InParam("this_tank")]
+    public GameObject this_tank;
+
     public override bool Check()
     {
-        GameObject patrolling_tank = GameObject.Find("PatrolTank");
-        GameObject wandering_tank = GameObject.Find("WanderTank");
-        return Vector3.Distance(patrolling_tank.transform.position, wandering_tank.transform.position) < 20f;
+        Shoot shoot = this_tank.GetComponent<Shoot>();
+
+        return shoot.IsEnemyClose();
     }
 }
