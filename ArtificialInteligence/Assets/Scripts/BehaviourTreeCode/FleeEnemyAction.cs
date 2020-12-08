@@ -9,15 +9,17 @@ using Pada1.BBCore.Framework;
 
 public class FleeEnemyAction : BasePrimitiveAction
 {
-    [InParam("enemy_tank")]
-    public GameObject enemy_tank;
+    [InParam("wandering_tank")]
+    public GameObject wandering_tank;
 
-    [OutParam("enemy_position")]
-    public Vector3 enemy_position;
+    [OutParam("flee_destination")]
+    public Vector3 flee_destination;
 
     public override TaskStatus OnUpdate()
     {
-        enemy_position = enemy_tank.transform.position;
+        FleeTreeScript flee = wandering_tank.GetComponent<FleeTreeScript>();
+
+        flee_destination = flee.FleeDestination();
 
         return TaskStatus.COMPLETED;
     }
