@@ -13,6 +13,7 @@ public class Shoot : MonoBehaviour
     public GameObject turret; //tank turret
     public Rigidbody bullet; //bullet we will shoot
     public Transform bullet_spawn; //place where we spawn the bullets
+    public Transform base_; //place where you reload
 
     public AudioSource shooting_audio;
     public AudioClip charging_clip;
@@ -71,9 +72,15 @@ public class Shoot : MonoBehaviour
         {
             has_no_bullets = true;
         }
+
         else if(bullets > 0)
         {
             has_no_bullets = false;
+        }
+
+        if(Vector3.Distance(transform.position, base_.position) <= 5.0f)
+        {
+            bullets = 3;
         }
          
     }
